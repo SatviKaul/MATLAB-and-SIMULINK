@@ -1,0 +1,22 @@
+clc;
+clear all;
+close all;
+fc=1000;
+fs=10000;
+fm=200;
+t=0:1/fs:(2/fm-1/fs);
+mt=0.4*sin(2*pi*fm*t)+0.5;
+st1=modulate(mt,fc,fs,'PPM');
+subplot(2,1,1);
+plot(mt);
+title('Message Signal');
+xlabel('Time (sec)');
+ylabel('Amplitude');
+axis([0 50 0 1]);
+subplot(2,1,2);
+plot(st1);
+title('PPM Signal');
+xlabel('Time (sec)');
+ylabel('Amplitude');
+axis([0 500 -.2 1.2]);
+
